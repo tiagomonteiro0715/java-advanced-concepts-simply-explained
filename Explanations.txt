@@ -1,0 +1,162 @@
+Java abstract class vs interface. What to choose?
+
+The choice between using an abstract class or an interface in Java depends on the specific requirements and design of your project.
+
+An abstract class can provide a base implementation, including both concrete and abstract methods. 
+It allows you to share common behavior and fields between multiple classes, and can also be extended by only one class, 
+making it appropriate for creating class hierarchies.
+
+An interface, on the other hand, defines only a set of method signatures, but no implementation. 
+It allows multiple classes to implement the same set of methods, and is appropriate for defining types that are used to 
+specify a contract that can be implemented by many classes independently.
+
+In general, if you want to provide a base implementation and share common behavior between classes, use an abstract class. 
+If you only want to specify a common set of methods that must be implemented by multiple classes, use an interface. 
+If you need to provide both a common implementation and specify a contract, you can use both an abstract class and an interface together.
+
+
+========================================================================================================================================================
+    List: An interface in Java that defines a set of methods for working with a list data structure.
+
+    <String>: A generic type that specifies the type of elements that the list will store. In this case, the list will store strings.
+
+    list: A variable name that refers to an instance of the list data structure.
+
+    new ArrayList<>(): A constructor of the ArrayList class, which creates a new instance of the list. 
+
+    The empty angle brackets <> indicate that the type of elements that the list will store will be inferred 
+    from the type of the variable (list) that the instance is being assigned to, which is List<String>.    
+
+>>>>List < String > list = new ArrayList < > ();
+========================================================================================================================================================
+    Set: An interface in Java that defines a set of methods for working with a set data structure, which is a collection of unique elements.
+
+    <String>: A generic type that specifies the type of elements that the set will store. In this case, the set will store strings.
+
+    set: A variable name that refers to an instance of the set data structure.
+
+    new HashSet<>(): A constructor of the HashSet class, which creates a new instance of the set. 
+    The empty angle brackets <> indicate that the type of elements that the set will store will be inferred 
+    from the type of the variable (set) that the instance is being assigned to, which is Set<String>.
+
+>>>>Set < String > set = new HashSet < > ();
+========================================================================================================================================================
+    Map: An interface in Java that defines a set of methods for working with a map data structure, which is a collection of key-value pairs.
+
+    <String, Integer>: A generic type that specifies the types of the keys and values that the map will store. 
+    In this case, the keys will be strings and the values will be integers.
+
+    map: A variable name that refers to an instance of the map data structure.
+
+    new HashMap<>(): A constructor of the HashMap class, which creates a new instance of the map. 
+    The empty angle brackets <> indicate that the types of the keys and values that the map will store will be inferred 
+    from the type of the variable (map) that the instance is being assigned to, which is Map<String, Integer>.
+
+>>>>Map < String, Integer > map = new HashMap < > ();
+========================================================================================================================================================
+Why are generics used in java simply explained?
+
+Generics in Java allow you to create reusable classes, interfaces, and methods that work with different types of data. 
+This makes your code more flexible and scalable, because you can write a generic algorithm once and use it with multiple types of objects, 
+without having to write separate implementations for each type.
+
+Generics also help you write safer and more readable code, because they enable you to catch errors at compile time rather than at runtime. 
+This can help you avoid bugs and reduce the need for debugging.
+
+For example, consider a generic class List that can be used to store a list of objects of any type. 
+You can create a List of integers, a List of strings, and so on, all with the same implementation. 
+This makes your code more concise and less error-prone, because you don't have to write separate implementations for each type of list.
+========================================================================================================================================================
+why in java the main() method is static many times, simply explained?
+
+The main() method in Java is declared as static because it is the entry point for your application, 
+and needs to be called without creating an instance of the class that contains it.
+
+In Java, a static method belongs to the class rather than an instance of the class. 
+This means that you can call a static method without creating an object of the class. 
+This is particularly useful in the case of the main() method, because it is called by the Java Virtual Machine (JVM) when your program starts, 
+before any objects have been created.
+
+Declaring the main() method as static also makes it easier for the JVM to locate and execute the method, 
+as it does not have to create an instance of the class and then call the method.
+
+Overall, declaring the main() method as static is a common practice in Java because it provides a clear entry point for the JVM to start executing 
+your program and ensures that the method can be called without creating an object of the class that contains it.
+========================================================================================================================================================
+What the static keyword is in java simply explained with examples
+
+The static keyword in Java is used to declare a member (i.e. a variable or a method) as static. 
+This means that the member belongs to the class itself, rather than to an instance of the class.
+
+Static variables are also known as class variables, because they are shared among all instances of a class. 
+They are created when the class is loaded into memory, and exist until the class is unloaded. 
+
+Static methods can only access static variables and other static methods within the same class. 
+They cannot access non-static members (i.e. instance variables and instance methods) of the class, because they are not associated with a specific instance.
+
+Static members are often used when you need to share data or behavior across all instances of a class, or when you want to provide utility methods that do not depend on instance data. 
+
+For example, the Math class in Java provides a number of static methods for mathematical operations, such as Math.sqrt() and Math.sin().
+========================================================================================================================================================
+What does it mean, simply, that a member belongs to the class itself, rather than to an instance of the class in java?
+
+When a member (i.e. a variable or a method) is declared as static, it belongs to the class itself rather than to an instance of the class. 
+This means that the member is shared across all instances of the class and can be accessed without creating an instance of the class.
+
+For example, consider a class Counter with a static variable count:
+
+class Counter {
+    static int count = 0;
+    
+    static void increment() {
+        count++;
+    }
+}
+
+Here, the count variable is a class variable that belongs to the class Counter and is shared by all instances of the class. 
+Any instance of Counter can access the count variable without having to create a new instance of the class. 
+The same is true for the increment() method, which can be called without creating an instance of Counter.
+
+In contrast, instance variables and instance methods belong to a specific instance of the class and can only be accessed through that instance. 
+For example, consider the following class Person:
+
+class Person {
+    String name;
+    int age;
+    
+    void setName(String name) {
+        this.name = name;
+    }
+}
+
+Here, the name and age variables are instance variables, and the setName() method is an instance method. 
+Each instance of the Person class has its own separate name and age variables, and the setName() method can only be called on a specific instance of the class.
+========================================================================================================================================================
+What @Override does in java?
+The @Override annotation in Java is used to indicate that a method is intended to override a method declared in a superclass(Bicycle). 
+When a method is annotated with @Override, the compiler checks that the method actually does override a superclass method. 
+If it does not, the compiler generates an error.
+========================================================================================================================================================
+Simply explain each component of "int port = Integer.parseInt(args[1]);"
+
+The code int port = Integer.parseInt(args[1]); is made up of the following components:
+
+    int: This is the data type of the variable port. It is an int value, which represents a 32-bit signed integer in Java.
+
+    port: This is the variable that will hold the parsed integer value.
+
+    Integer.parseInt(args[1]): This is the method call that parses a string representation of a number into an int value. 
+    The method Integer.parseInt() is a static method of the Integer class. 
+    The argument passed to the method, args[1], is an element of the args array. 
+    The args array is usually passed to the main() method as command-line arguments. 
+    The [1] index accesses the second element of the array, as arrays in Java are zero-indexed.
+
+    =: This is the assignment operator, which assigns the value returned by Integer.parseInt(args[1]) to the variable port.
+
+The code is used to parse a string into an integer in Java. 
+It takes the second element of the args array (index 1), which is assumed to be a string representation of a number, 
+and converts it into an int value, which is then stored in the variable port.
+========================================================================================================================================================
+
+
+
